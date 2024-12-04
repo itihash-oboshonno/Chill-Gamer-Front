@@ -8,6 +8,10 @@ import Home from "./components/Home";
 import AuthProvider from "./providers/AuthProvider";
 import SignUp from "./components/PrivateRoutes/SignUp";
 import Login from "./components/PrivateRoutes/Login";
+import AllReviews from "./components/AllReviews";
+import AddReview from "./components/PrivateRoutes/AddReview";
+import MyReviews from "./components/PrivateRoutes/MyReviews";
+import GameWatchlist from "./components/PrivateRoutes/GameWatchlist";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +22,22 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "/allreviews",
+        element: <AllReviews></AllReviews>,
+      },
+      {
+        path: "/addreview",
+        element: <AddReview></AddReview>,
+      },
+      {
+        path: "/myreviews",
+        element: <MyReviews></MyReviews>,
+      },
+      {
+        path: "/watchlist",
+        element: <GameWatchlist></GameWatchlist>,
       },
       {
         path: "/login",
