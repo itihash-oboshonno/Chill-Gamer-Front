@@ -73,7 +73,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="bg-primary">
+    <div className="bg-primary drop-shadow-lg">
       <nav className="flex justify-between items-center max-w-7xl mx-auto p-5">
         <div>
           <Link to="/" className="flex items-center gap-3">
