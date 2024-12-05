@@ -79,6 +79,9 @@ const Login = () => {
             Sign In With Google
           </button>
           <p className="text-center">Don't have an account? Please <Link to="/signup" className="underline">Register Here</Link></p>
+          <p className="my-2 text-center font-semibold text-redA">
+            {errorMess}
+          </p>
         </div>
       </div>
     </div>

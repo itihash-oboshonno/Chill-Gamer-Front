@@ -125,11 +125,12 @@ const SignUp = () => {
               Login Here
             </Link>
           </p>
-          <p className="text-center font-semibold text-redA">
+          <p className="my-2 text-center font-semibold text-redA">
             {errMessage}
           </p>
         </div>
       </div>
+      {/* <Toaster position="top-center" expand={false} richColors /> */}
     </div>
   );
 };
