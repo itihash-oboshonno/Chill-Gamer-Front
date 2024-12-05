@@ -38,7 +38,7 @@ const AddReview = () => {
     console.log(newReview);
 
     // to server
-    fetch('http://localhost:5000/review', {
+    fetch('http://localhost:5000/reviews', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
