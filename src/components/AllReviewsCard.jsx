@@ -1,9 +1,10 @@
 import { FaStar } from "react-icons/fa";
 import { FaCalendarAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const AllReviewsCard = ({singleReview}) => {
 
-    const {title, image, rating, year} = singleReview;
+    const {_id, title, image, rating, year} = singleReview;
 
     return (
         <div className="grid gap-3 rounded-2xl bg-greenB p-5">
@@ -17,9 +18,9 @@ const AllReviewsCard = ({singleReview}) => {
                     <p className="flex items-center gap-1 my-1"><span><FaCalendarAlt/></span>{year}</p>
                 </div>
             </div>
-            <div className="flex justify-center">
+            <Link to={`/review/${_id}`} className="flex justify-center">
                 <button className="text-primary font-bold px-6 py-2 rounded-lg bg-greenC w-full">Details</button>
-            </div>
+            </Link>
         </div>
     );
 };

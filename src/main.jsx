@@ -12,6 +12,7 @@ import AllReviews from "./components/AllReviews";
 import AddReview from "./components/PrivateRoutes/AddReview";
 import MyReviews from "./components/PrivateRoutes/MyReviews";
 import GameWatchlist from "./components/PrivateRoutes/GameWatchlist";
+import DetailedReview from "./components/DetailedReview";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,12 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: <SignUp></SignUp>,
+      },
+      {
+        path: `/review/:id`,
+        element: <DetailedReview></DetailedReview>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/reviews/${params.id}`),
       },
     ],
   },
