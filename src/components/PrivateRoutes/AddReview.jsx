@@ -1,11 +1,13 @@
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { FaCaretSquareDown } from "react-icons/fa";
 import { AuthContext } from "../../providers/AuthProvider";
+import { toast, Toaster } from "sonner";
 
 const AddReview = () => {
   const {currentUser} = useContext(AuthContext);
   const [category, setCategory] = useState("");
   const currentYear = new Date().getFullYear();
+  const formRef = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,20 +21,20 @@ const AddReview = () => {
     const email = currentUser.email;
     const userName = currentUser.displayName;
 
-    const newReview = {title, image, review, rating, year, genre, email, userName}
+    const newReview = {title, image, review, rating, year, genre, email, userName};
 
     if(rating>10 || rating<1) {
-      alert("Rating range is 1-10!");
+      toast.warning("Rating range is 1-10!");
       return;
     }
 
     if(year<1962 || year>currentYear) {
-      alert("Publish year must be from 1962 to now!")
+      toast.warning(`Publish year must be from 1962 to ${currentYear}!`)
       return;
     }
 
     if(!category) {
-      alert("Please Select Genre!");
+      toast.warning("Please Select Genre!");
       return;
     }
     console.log(newReview);
@@ -48,6 +50,10 @@ const AddReview = () => {
     .then(res => res.json())
     .then(data => {
       console.log(data);
+      if (data.insertedId) {
+        formRef.current.reset();
+        toast.success("Your review added successfully!");
+      }
     })
 
   }
@@ -56,7 +62,7 @@ const AddReview = () => {
     <div>
       <div className="bg-primary min-h-screen px-5 py-10">
         <div className="max-w-7xl mx-auto p-5 bg-greenB rounded-2xl">
-          <form className="grid gap-5" onSubmit={handleSubmit}>
+          <form className="grid gap-5" onSubmit={handleSubmit} ref={formRef}>
             <div className="flex flex-col md:flex-row items-center justify-center gap-5">
               <input
                 type="text"
@@ -142,6 +148,7 @@ const AddReview = () => {
           </form>
         </div>
       </div>
+      <Toaster position="top-center" expand={false} richColors />
     </div>
   );
 };

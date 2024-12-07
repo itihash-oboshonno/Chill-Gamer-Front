@@ -3,6 +3,7 @@ import { FaCalendarAlt, FaStar } from "react-icons/fa";
 import { SiAnytype } from "react-icons/si";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import { toast, Toaster } from "sonner";
 
 const DetailedReview = () => {
     const {currentUser} = useContext(AuthContext);
@@ -11,7 +12,6 @@ const DetailedReview = () => {
     const handleWishlist = () => {
         const {title, image, review, rating, year, genre, email, userName} = loadedReview;
         const wishObject = {title, image, review, rating, year, genre, email, userName, wishListsUser: currentUser.email};
-        // Open success modal
 
         // Send to server
         fetch('http://localhost:5000/wishlist', {
@@ -24,6 +24,7 @@ const DetailedReview = () => {
           .then(res => res.json())
           .then(data => {
             console.log(data);
+            toast.success(`${title} has been added to your Watchlist!`)
           })
     }
 
@@ -60,6 +61,7 @@ const DetailedReview = () => {
             <div className="py-10 flex justify-center items-center">
                 <img className="max-h-[500px]" src={loadedReview.image} alt="" />
             </div>
+            <Toaster position="top-center" expand={false} richColors />
         </div>
     );
 };
