@@ -9,7 +9,8 @@ const DetailedReview = () => {
     const loadedReview = useLoaderData();
 
     const handleWishlist = () => {
-        const wishObject = {...loadedReview, wishListsUser: currentUser.email}
+        const {title, image, review, rating, year, genre, email, userName} = loadedReview;
+        const wishObject = {title, image, review, rating, year, genre, email, userName, wishListsUser: currentUser.email};
         // Open success modal
 
         // Send to server
