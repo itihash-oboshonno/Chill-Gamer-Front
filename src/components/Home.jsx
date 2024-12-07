@@ -1,11 +1,11 @@
-import Banner from "./HomeComponents/Banner";
+import Cerousal from "./HomeComponents/Cerousal";
 
 const Home = () => {
   return (
     <div>
       <div className="bg-primary">
         <div className="max-w-7xl mx-auto px-5 py-10">
-          <Banner></Banner>
+          <Cerousal></Cerousal>
         </div>
       </div>
     </div>
