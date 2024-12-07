@@ -4,6 +4,7 @@ import Loading from "../Loading";
 import { FaEdit } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const MyReviews = () => {
   const { currentUser } = useContext(AuthContext);
@@ -99,9 +100,9 @@ const MyReviews = () => {
                         <td>{ekta.rating}</td>
                         <td>
                           <div className="px-5 flex flex-col md:flex-row gap-5">
-                            <button className="text-lg">
+                            <Link to={`/updatereview/${ekta._id}`}><button className="text-lg">
                               <FaEdit></FaEdit>
-                            </button>
+                            </button></Link>
                             <button onClick={()=> handleDelete(ekta._id)} className="text-2xl">
                               <MdDeleteForever />
                             </button>
