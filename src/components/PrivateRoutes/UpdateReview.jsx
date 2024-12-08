@@ -54,7 +54,6 @@ const UpdateReview = () => {
       toast.warning("Please Select Genre!");
       return;
     }
-    console.log(updatedReview);
 
     // to server
     fetch(`http://localhost:5000/reviews/${_id}`, {
@@ -66,7 +65,6 @@ const UpdateReview = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Success!",

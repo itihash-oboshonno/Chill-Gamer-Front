@@ -3,6 +3,7 @@ import logoImg from "../assets/chill-gamer-logo-small.png";
 import { useContext } from "react";
 import { AuthContext } from "../providers/AuthProvider";
 import { FaBars } from "react-icons/fa";
+import { toast, Toaster } from "sonner";
 
 const Navbar = () => {
   const { currentUser, userLogout } = useContext(AuthContext);
@@ -10,10 +11,10 @@ const Navbar = () => {
   const handleSignOut = () => {
     userLogout()
       .then(() => {
-        // toast.info("User Signed Out");
+        toast.info("User Signed Out");
       })
       .catch((error) => {
-        // toast.error("ERROR", error.message);
+        toast.error("ERROR", error.message);
       });
   };
 
@@ -148,6 +149,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
+      <Toaster position="top-center" expand={false} richColors />
     </div>
   );
 };

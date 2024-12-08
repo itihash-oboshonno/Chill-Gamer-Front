@@ -3,6 +3,7 @@ import { FaStar } from "react-icons/fa";
 import { FaCalendarAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Loading from "./Loading";
+import { toast, Toaster } from "sonner";
 
 const AllReviews = () => {
   const [dataToShow, setDataToShow] = useState([]);
@@ -33,7 +34,7 @@ const AllReviews = () => {
       const result = await response.json();
       setDataToShow(result);
     } catch (err) {
-      console.log(err.message);
+      toast(err.message);
     } finally {
       setThisLoading(false);
     }
@@ -199,6 +200,7 @@ const AllReviews = () => {
           </div>
         ))}
       </div>
+      <Toaster position="top-center" expand={false} richColors />
     </div>
   );
 };

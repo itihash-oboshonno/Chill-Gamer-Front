@@ -23,8 +23,9 @@ const DetailedReview = () => {
           })
           .then(res => res.json())
           .then(data => {
-            console.log(data);
-            toast.success(`${title} has been added to your Watchlist!`)
+            if(data.insertedId){
+                toast.success(`${title} has been added to your Watchlist!`);
+            };            
           })
     }
 
