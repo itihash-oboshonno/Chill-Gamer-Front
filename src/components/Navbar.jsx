@@ -23,7 +23,9 @@ const Navbar = () => {
         <NavLink
           to="/"
           className={({ isActive }) =>
-            isActive ? "text-primary font-bold bg-greenB px-6 py-2 rounded-lg text-sm" : "text-greenA hover:text-greenC text-sm"
+            isActive
+              ? "text-primary font-bold bg-greenB px-6 py-2 rounded-lg text-sm"
+              : "text-greenA hover:text-greenC text-sm"
           }
         >
           Home
@@ -33,7 +35,9 @@ const Navbar = () => {
         <NavLink
           to="/allreviews"
           className={({ isActive }) =>
-            isActive ? "text-primary font-bold bg-greenB px-6 py-2 rounded-lg text-sm" : "text-greenA hover:text-greenC text-sm"
+            isActive
+              ? "text-primary font-bold bg-greenB px-6 py-2 rounded-lg text-sm"
+              : "text-greenA hover:text-greenC text-sm"
           }
         >
           All Reviews
@@ -43,7 +47,9 @@ const Navbar = () => {
         <NavLink
           to="/addreview"
           className={({ isActive }) =>
-            isActive ? "text-primary font-bold bg-greenB px-6 py-2 rounded-lg text-sm" : "text-greenA hover:text-greenC text-sm"
+            isActive
+              ? "text-primary font-bold bg-greenB px-6 py-2 rounded-lg text-sm"
+              : "text-greenA hover:text-greenC text-sm"
           }
         >
           Add Review
@@ -53,7 +59,9 @@ const Navbar = () => {
         <NavLink
           to="/myreviews"
           className={({ isActive }) =>
-            isActive ? "text-primary font-bold bg-greenB px-6 py-2 rounded-lg text-sm" : "text-greenA hover:text-greenC text-sm"
+            isActive
+              ? "text-primary font-bold bg-greenB px-6 py-2 rounded-lg text-sm"
+              : "text-greenA hover:text-greenC text-sm"
           }
         >
           My Reviews
@@ -63,7 +71,9 @@ const Navbar = () => {
         <NavLink
           to="/watchlist"
           className={({ isActive }) =>
-            isActive ? "text-primary font-bold bg-greenB px-6 py-2 rounded-lg text-sm" : "text-greenA hover:text-greenC text-sm"
+            isActive
+              ? "text-primary font-bold bg-greenB px-6 py-2 rounded-lg text-sm"
+              : "text-greenA hover:text-greenC text-sm"
           }
         >
           Watchlist
@@ -87,37 +97,34 @@ const Navbar = () => {
         <div className="">
           {currentUser ? (
             <>
-              <div className="flex items-center gap-3">
-                <div className="p-1 rounded-xl flex items-center gap-3 md:gap-1">
-                  <img
-                    className="rounded-full w-8 h-8 md:w-11 md:h-11 object-cover"
-                    src={currentUser.photoURL}
-                    alt=""
-                  />
-                  <p className="hidden md:flex bg-blueC rounded-lg p-3.5 text-blueA text-sm font-semibold">
-                    {currentUser.email}
-                  </p>
+              <div className="p-1 rounded-xl flex items-center">
+                  <div className="tooltip tooltip-bottom" data-tip={currentUser.displayName}>
+                    <img
+                      className="rounded-l-lg w-9 h-9 object-cover"
+                      src={currentUser.photoURL}
+                      alt=""
+                    />
+                  </div>
                   <Link to="/">
                     <button
                       onClick={handleSignOut}
-                      className="text-primary font-bold bg-greenB px-6 py-2 rounded-lg text-sm hover:bg-redC hover:text-redA"
+                      className="text-primary font-bold bg-greenB px-3 py-2 md:px-6 md:py-2 rounded-r-lg text-sm hover:bg-redC hover:text-redA"
                     >
                       Logout
                     </button>
                   </Link>
                 </div>
-              </div>
             </>
           ) : (
             <>
               <div className="flex items-center gap-3">
                 <Link to="/login">
-                  <button className="text-primary font-bold bg-greenB px-6 py-2 rounded-lg text-sm hover:bg-greenC">
+                  <button className="text-primary font-bold bg-greenB px-3 py-2 md:px-6 md:py-2 rounded-lg text-sm hover:bg-greenC">
                     Login
                   </button>
                 </Link>
                 <Link to="/signup">
-                  <button className="text-primary font-bold bg-greenB px-6 py-2 rounded-lg text-sm hover:bg-greenC">
+                  <button className="text-primary font-bold bg-greenB px-3 py-2 md:px-6 md:py-2 rounded-lg text-sm hover:bg-greenC">
                     Sign Up
                   </button>
                 </Link>
@@ -127,10 +134,7 @@ const Navbar = () => {
         </div>
         <div className="flex lg:hidden ml-3">
           <div className="dropdown dropdown-end">
-            <div
-              tabIndex={0}
-              role="button"
-            >
+            <div tabIndex={0} role="button">
               <div className="w-10 rounded-full">
                 <FaBars className="text-greenB"></FaBars>
               </div>

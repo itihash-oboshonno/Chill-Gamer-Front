@@ -25,7 +25,7 @@ const Cerousal = () => {
       <Slider {...settings}>
         {images.map((img, index) => (
           <div key={index}>
-            <img src={img} alt={`Slide ${index + 1}`} style={{ width: "100%" }} />
+            <img className="rounded-lg md:rounded-3xl" src={img} alt={`Slide ${index + 1}`} style={{ width: "100%" }} />
           </div>
         ))}
       </Slider>

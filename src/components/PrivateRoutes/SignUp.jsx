@@ -1,6 +1,8 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import { toast, Toaster } from "sonner";
+import Swal from "sweetalert2";
 
 const SignUp = () => {
   const { createUserWithPass, setCurrentUser, setLoading, updateUserData } =
@@ -22,19 +24,19 @@ const SignUp = () => {
 
     if (!checkLower.test(password)) {
       setErrMessage("Password must have at least 1 lowercase letter.");
-    //   toast.error("Password must have at least 1 lowercase letter.");
+      toast.error("Password must have at least 1 lowercase letter.");
       return;
     }
 
     if (!checkUpper.test(password)) {
       setErrMessage("Password must have at least 1 uppercase letter.");
-    //   toast.error("Password must have at least 1 uppercase letter.");
+      toast.error("Password must have at least 1 uppercase letter.");
       return;
     }
 
     if (!checkSix.test(password)) {
       setErrMessage("Password must be at least 6 characters long.");
-    //   toast.error("Password must be at least 6 characters long.");
+      toast.error("Password must be at least 6 characters long.");
       return;
     }
 
@@ -53,17 +55,22 @@ const SignUp = () => {
               displayName: name,
               photoURL: picture,
             }));
+            Swal.fire({
+              title: "Welcome!",
+              text: "Sign up successful!",
+              icon: "success"
+            });
             navigate("/");
             setLoading(false);
           })
           .catch((error) => {
             setErrMessage(error.message);
-            // toast.error(error.message);
+            toast.error(error.message);
           });
       })
       .catch((error) => {
         setErrMessage(error.message);
-        // toast.error(error.message);
+        toast.error(error.message);
       });
   };
 
@@ -130,7 +137,7 @@ const SignUp = () => {
           </p>
         </div>
       </div>
-      {/* <Toaster position="top-center" expand={false} richColors /> */}
+      <Toaster position="top-center" expand={false} richColors />
     </div>
   );
 };

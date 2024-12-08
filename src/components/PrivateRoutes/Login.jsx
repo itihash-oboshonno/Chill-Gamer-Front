@@ -1,6 +1,8 @@
 import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import Swal from "sweetalert2";
+import { toast, Toaster } from "sonner";
 
 const Login = () => {
 
@@ -16,11 +18,15 @@ const Login = () => {
     e.preventDefault();
     loginViaGoogle()
     .then((result) => {
-      // toast.success(`${result.user.displayName} logged in successfully!`);
+      Swal.fire({
+        title: "Welcome!",
+        text: "Log in successful!",
+        icon: "success"
+      });
       navigate(from, { replace: true });
     })
     .catch((error) => {
-      // toast.error(error.message);
+      toast.error(error.message);
     });
   }
 
@@ -31,14 +37,18 @@ const Login = () => {
 
     userLogin(email, password)
       .then((result) => {
-        // toast.success(`${result.user.displayName} logged in successfully!`);
+        Swal.fire({
+          title: "Welcome!",
+          text: "Log in successful!",
+          icon: "success"
+        });
         setLoading(true);
         navigate(from, { replace: true });
         setLoading(false);
       })
       .catch((error) => {
         setErrorMess(error.message);
-        // toast.error(error.message);
+        toast.error(error.message);
       });
   };
 
@@ -84,6 +94,7 @@ const Login = () => {
           </p>
         </div>
       </div>
+      <Toaster position="top-center" expand={false} richColors />
     </div>
   );
 };

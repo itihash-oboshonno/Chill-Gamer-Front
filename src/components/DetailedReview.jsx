@@ -11,7 +11,7 @@ const DetailedReview = () => {
 
     const handleWishlist = () => {
         const {title, image, review, rating, year, genre, email, userName} = loadedReview;
-        const wishObject = {title, image, review, rating, year, genre, email, userName, wishListsUser: currentUser.email};
+        const wishObject = {title, image, review, rating, year, genre, email, userName, wishListsUser: currentUser.email, wishListsName: currentUser.displayName};
 
         // Send to server
         fetch('http://localhost:5000/wishlist', {

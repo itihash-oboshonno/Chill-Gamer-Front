@@ -7,14 +7,14 @@ const AllReviewsCard = ({singleReview}) => {
     const {_id, title, image, rating, year} = singleReview;
 
     return (
-        <div className="grid gap-3 rounded-2xl bg-greenB p-5">
+        <div className="grid gap-3 rounded-2xl bg-greenB p-5 text-primary">
             <div>
                 <img className="object-cover w-full h-52 rounded-lg" src={image} alt="" />
             </div>
             <div>
                 <p className="font-semibold text-xl my-1">{title}</p>
                 <div className="flex items-center justify-between">
-                    <p className="flex items-center gap-1 my-1">Rating: <span>{rating}/10</span> <span><FaStar/></span></p>
+                    <p className="flex items-center gap-1 my-1">Rating: <span>{rating}/10</span> <span className="text-yellow-400"><FaStar/></span></p>
                     <p className="flex items-center gap-1 my-1"><span><FaCalendarAlt/></span>{year}</p>
                 </div>
             </div>

@@ -15,7 +15,7 @@ const UpdateReview = () => {
 
   useEffect(() => {
     setCategory(genre);
-  }, [])
+  }, []);
 
   const handleUpdateRev = (e) => {
     e.preventDefault();
@@ -71,7 +71,7 @@ const UpdateReview = () => {
           Swal.fire({
             title: "Success!",
             text: "Your review updated successfully!",
-            icon: "success"
+            icon: "success",
           });
         }
       });
@@ -79,28 +79,38 @@ const UpdateReview = () => {
 
   return (
     <div>
-      <div className="bg-primary min-h-screen px-5 py-10">
+      <div className="min-h-screen px-5 py-10">
+        <h2 className="text-4xl font-bold pb-10 text-primary text-center">
+          Update {title} Review
+        </h2>
         <div className="max-w-7xl mx-auto p-5 bg-greenB rounded-2xl">
           <form className="grid gap-5" onSubmit={handleUpdateRev}>
             <div className="flex flex-col md:flex-row items-center justify-center gap-5">
-              <input
-                type="text"
-                name="title"
-                defaultValue={title}
-                placeholder="Game Title"
-                className="rounded-lg p-2 border w-full"
-                required
-              />
-              <input
-                type="url"
-                name="cover"
-                defaultValue={image}
-                placeholder="Photo-URL"
-                className="rounded-lg p-2 border w-full"
-                required
-              />
+              <div className="w-full">
+                <p className="mb-1 font-medium">Game Title</p>
+                <input
+                  type="text"
+                  name="title"
+                  defaultValue={title}
+                  placeholder="Game Title"
+                  className="rounded-lg p-2 border w-full"
+                  required
+                />
+              </div>
+              <div className="w-full">
+                <p className="mb-1 font-medium">Game Cover</p>
+                <input
+                  type="url"
+                  name="cover"
+                  defaultValue={image}
+                  placeholder="Photo-URL"
+                  className="rounded-lg p-2 border w-full"
+                  required
+                />
+              </div>
             </div>
-            <div className="flex items-center justify-center">
+            <div className="w-full">
+              <p className="mb-1 font-medium">Description</p>
               <textarea
                 type="text"
                 name="description"
@@ -111,97 +121,108 @@ const UpdateReview = () => {
               />
             </div>
             <div className="grid md:grid-cols-3 items-center justify-center gap-5">
-              <input
-                type="number"
-                name="rating"
-                defaultValue={rating}
-                placeholder="Rating (out of 10)"
-                className="rounded-lg p-2 border w-full"
-                required
-              />
-              <input
-                type="number"
-                name="year"
-                defaultValue={year}
-                placeholder="Publish Year"
-                className="rounded-lg p-2 border w-full"
-                required
-              />
-              <div className="flex items-center">
+              <div className="w-full">
+                <p className="mb-1 font-medium">Rating</p>
                 <input
-                  type="text"
-                  name="genre"
-                  defaultValue={category}
-                  className="rounded-l-lg p-2 border w-full"
-                  disabled
+                  type="number"
+                  name="rating"
+                  defaultValue={rating}
+                  placeholder="Rating (out of 10)"
+                  className="rounded-lg p-2 border w-full"
+                  required
                 />
-                <div className="dropdown dropdown-end">
-                  <div
-                    tabIndex={0}
-                    role="button"
-                    className="text-primary font-bold bg-greenC px-6 py-2.5 rounded-r-lg text-xl"
-                  >
-                    <FaCaretSquareDown />
+              </div>
+              <div className="w-full">
+                <p className="mb-1 font-medium">Publish Year</p>
+                <input
+                  type="number"
+                  name="year"
+                  defaultValue={year}
+                  placeholder="Publish Year"
+                  className="rounded-lg p-2 border w-full"
+                  required
+                />
+              </div>
+              <div className="w-full">
+                <p className="mb-1 font-medium">Genre</p>
+                <div className="flex items-center">
+                  <input
+                    type="text"
+                    name="genre"
+                    defaultValue={category}
+                    className="rounded-l-lg p-2 border w-full"
+                    disabled
+                  />
+                  <div className="dropdown dropdown-end">
+                    <div
+                      tabIndex={0}
+                      role="button"
+                      className="text-primary font-bold bg-greenC px-6 py-2.5 rounded-r-lg text-xl"
+                    >
+                      <FaCaretSquareDown />
+                    </div>
+                    <ul
+                      tabIndex={0}
+                      className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+                    >
+                      <li onClick={() => setCategory("Action")}>
+                        <a>Action</a>
+                      </li>
+                      <li onClick={() => setCategory("Adventure")}>
+                        <a>Adventure</a>
+                      </li>
+                      <li onClick={() => setCategory("Arcade")}>
+                        <a>Arcade</a>
+                      </li>
+                      <li onClick={() => setCategory("Battle Royale")}>
+                        <a>Battle Royale</a>
+                      </li>
+                      <li onClick={() => setCategory("Casual")}>
+                        <a>Casual</a>
+                      </li>
+                      <li onClick={() => setCategory("Fighting")}>
+                        <a>Fighting</a>
+                      </li>
+                      <li onClick={() => setCategory("Puzzle")}>
+                        <a>Puzzle</a>
+                      </li>
+                      <li onClick={() => setCategory("Racing")}>
+                        <a>Racing</a>
+                      </li>
+                      <li onClick={() => setCategory("RPG")}>
+                        <a>RPG</a>
+                      </li>
+                      <li onClick={() => setCategory("Sandbox")}>
+                        <a>Sandbox</a>
+                      </li>
+                      <li onClick={() => setCategory("Sports")}>
+                        <a>Sports</a>
+                      </li>
+                      <li onClick={() => setCategory("Stealth")}>
+                        <a>Stealth</a>
+                      </li>
+                      <li onClick={() => setCategory("Strategy")}>
+                        <a>Strategy</a>
+                      </li>
+                    </ul>
                   </div>
-                  <ul
-                    tabIndex={0}
-                    className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
-                  >
-                    <li onClick={() => setCategory("Action")}>
-                      <a>Action</a>
-                    </li>
-                    <li onClick={() => setCategory("Adventure")}>
-                      <a>Adventure</a>
-                    </li>
-                    <li onClick={() => setCategory("Arcade")}>
-                      <a>Arcade</a>
-                    </li>
-                    <li onClick={() => setCategory("Battle Royale")}>
-                      <a>Battle Royale</a>
-                    </li>
-                    <li onClick={() => setCategory("Casual")}>
-                      <a>Casual</a>
-                    </li>
-                    <li onClick={() => setCategory("Fighting")}>
-                      <a>Fighting</a>
-                    </li>
-                    <li onClick={() => setCategory("Puzzle")}>
-                      <a>Puzzle</a>
-                    </li>
-                    <li onClick={() => setCategory("Racing")}>
-                      <a>Racing</a>
-                    </li>
-                    <li onClick={() => setCategory("RPG")}>
-                      <a>RPG</a>
-                    </li>
-                    <li onClick={() => setCategory("Sandbox")}>
-                      <a>Sandbox</a>
-                    </li>
-                    <li onClick={() => setCategory("Sports")}>
-                      <a>Sports</a>
-                    </li>
-                    <li onClick={() => setCategory("Stealth")}>
-                      <a>Stealth</a>
-                    </li>
-                    <li onClick={() => setCategory("Strategy")}>
-                      <a>Strategy</a>
-                    </li>
-                  </ul>
                 </div>
               </div>
             </div>
             <div className="flex flex-col md:flex-row items-center justify-center gap-5">
-              <p className="rounded-lg p-2 border w-full">
-                {email}
-              </p>
-              <p className="rounded-lg p-2 border w-full">
-                {userName}
-              </p>
+              <div className="w-full">
+                <p className="mb-1 font-medium">User Email</p>
+                <p className="rounded-lg p-2 border w-full">{email}</p>
+              </div>
+              <div className="w-full">
+                <p className="mb-1 font-medium">User Name</p>
+                <p className="rounded-lg p-2 border w-full">{userName}</p>
+              </div>
             </div>
             <div className="flex items-center justify-end">
               <input
                 type="submit"
-                value="Submit Review"
+                value="Update Review"
                 className="text-primary font-bold px-6 py-2 rounded-lg bg-greenC cursor-pointer"
               />
             </div>
