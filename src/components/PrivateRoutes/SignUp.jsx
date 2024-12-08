@@ -47,7 +47,17 @@ const SignUp = () => {
         updateUserData({
           displayName: name,
           photoURL: picture,
-        })
+        });
+        // sending to mongo
+        const newUser = {email, name, picture};
+        fetch('http://localhost:5000/usercoll', {
+          method: "POST",
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(newUser)
+        }).then(res=> res.json()).then(data => toast.success(data))
+        // sent to mongo
           .then(() => {
             setLoading(true);
             setCurrentUser((user) => ({
