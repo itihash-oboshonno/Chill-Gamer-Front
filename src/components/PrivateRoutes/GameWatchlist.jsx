@@ -2,8 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import Loading from "../Loading";
 import Swal from "sweetalert2";
-import { FaStar } from "react-icons/fa";
-import { SiAnytype } from "react-icons/si";
 import { MdDeleteForever } from "react-icons/md";
 
 const GameWatchlist = () => {
@@ -56,7 +54,7 @@ const GameWatchlist = () => {
                 text: "Game removed from your watchlist.",
                 icon: "success",
               });
-              setFetchedData(fetchedData.filter(y => y._id !== _id))
+              setFetchedData(fetchedData.filter((y) => y._id !== _id));
             }
           });
       }
@@ -68,7 +66,7 @@ const GameWatchlist = () => {
   }
 
   return (
-    <div>
+    <div className="min-h-screen">
       <div className="max-w-7xl mx-auto px-5 py-10">
         <h2 className="font-bold text-4xl text-center">
           {currentUser.displayName}'s Watchlist
@@ -76,35 +74,45 @@ const GameWatchlist = () => {
         <div>
           {fetchedData ? (
             <div className="flex flex-col gap-5 py-10">
-              {fetchedData.map((prottek) => (
-                <div key={prottek._id} className="flex items-center justify-between bg-greenB rounded-lg">
-                  <div className="flex items-center gap-5">
-                    <div>
-                      <img
-                        className="object-cover h-32 w-32 rounded-lg"
-                        src={prottek.image}
-                        alt=""
-                      />
-                    </div>
-                    <div className="flex flex-col gap-2">
-                      <p className="text-xl font-bold">{prottek.title}</p>
-                      <p className="flex items-center gap-2">
-                        <FaStar />
-                        {prottek.rating}
-                      </p>
-                      <p className="flex items-center gap-2">
-                        <SiAnytype />
-                        {prottek.genre}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="px-5">
-                    <button onClick={() => handleDelete(prottek._id)} className="text-3xl">
-                      <MdDeleteForever />
-                    </button>
-                  </div>
-                </div>
-              ))}
+              <div className="overflow-x-auto">
+                <table className="table">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>Title</th>
+                      <th>Description</th>
+                      <th>Year</th>
+                      <th>Rating</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {fetchedData.map((prottek, index) => (
+                      <tr className="hover" key={prottek._id}>
+                        <th>{index + 1}</th>
+                        <td className="font-bold">{prottek.title}</td>
+                        <td>
+                          {prottek.review.length > 50
+                            ? `${prottek.review.slice(0, 50)}...`
+                            : prottek.review}
+                        </td>
+                        <td>{prottek.year}</td>
+                        <td>{prottek.rating}</td>
+                        <td>
+                          <div>
+                            <button
+                              onClick={() => handleDelete(prottek._id)}
+                              className="text-2xl"
+                            >
+                              <MdDeleteForever />
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           ) : (
             <p className="text-center text-lg md:text-2xl font-medium py-10">
