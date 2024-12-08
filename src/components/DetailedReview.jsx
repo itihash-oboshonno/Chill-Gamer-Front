@@ -11,22 +11,26 @@ const DetailedReview = () => {
 
     const handleWishlist = () => {
         const {title, image, review, rating, year, genre, email, userName} = loadedReview;
-        const wishObject = {title, image, review, rating, year, genre, email, userName, wishListsUser: currentUser.email, wishListsName: currentUser.displayName};
 
         // Send to server
-        fetch('http://localhost:5000/wishlist', {
-            method: 'POST',
-            headers: {
-              'content-type': 'application/json'
-            },
-            body: JSON.stringify(wishObject)
-          })
-          .then(res => res.json())
-          .then(data => {
-            if(data.insertedId){
-                toast.success(`${title} has been added to your Watchlist!`);
-            };            
-          })
+        if(currentUser) {
+            const wishObject = {title, image, review, rating, year, genre, email, userName, wishListsUser: currentUser.email, wishListsName: currentUser.displayName};
+            fetch('http://localhost:5000/wishlist', {
+                method: 'POST',
+                headers: {
+                  'content-type': 'application/json'
+                },
+                body: JSON.stringify(wishObject)
+              })
+              .then(res => res.json())
+              .then(data => {
+                if(data.insertedId){
+                    toast.success(`${title} has been added to your Watchlist!`);
+                };            
+              })
+        } else {
+            toast.error("Please login to add item to your watchlist!")
+        }
     }
 
     return (
