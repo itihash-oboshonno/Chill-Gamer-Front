@@ -46,7 +46,7 @@ const DetailedReview = () => {
                 <button onClick={handleWishlist} className="text-primary font-bold px-6 py-2 rounded-lg bg-greenC cursor-pointer">Add to Wishlist</button>
             </div>
             <div className="px-5 py-10">
-                <p className="font-bold text-2xl text-center">Detailed Review</p>
+                <p className="font-bold text-xl md:text-2xl text-center">Detailed Review</p>
                 <p className="mt-5">{loadedReview.review}</p>
             </div>
             <div className="flex flex-col md:flex-row gap-5 justify-center items-center">

@@ -56,7 +56,7 @@ const Login = () => {
   return (
     <div className="pb-20">
       <div className="max-w-6xl mx-auto px-5">
-        <h2 className="font-bold text-4xl text-center my-10">Login</h2>
+        <h2 className="font-bold text-xl md:text-4xl text-center my-10">Login</h2>
         <div className="border-2 rounded-2xl py-5 grid justify-center">
           <form className="grid justify-center" onSubmit={handleLogin}>
             <div>

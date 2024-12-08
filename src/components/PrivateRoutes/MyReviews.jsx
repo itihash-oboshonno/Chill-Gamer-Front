@@ -69,7 +69,7 @@ const MyReviews = () => {
   return (
     <div className="min-h-screen">
       <div className="max-w-7xl mx-auto px-5 py-10">
-        <h2 className="font-bold text-4xl text-center">
+        <h2 className="font-bold text-xl md:text-4xl text-center">
           {currentUser.displayName}'s Reviews
         </h2>
         <div>

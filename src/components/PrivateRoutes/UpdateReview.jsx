@@ -78,7 +78,7 @@ const UpdateReview = () => {
   return (
     <div>
       <div className="min-h-screen px-5 py-10">
-        <h2 className="text-4xl font-bold pb-10 text-primary text-center">
+        <h2 className="text-xl md:text-4xl font-bold pb-10 text-primary text-center">
           Update {title} Review
         </h2>
         <div className="max-w-7xl mx-auto p-5 bg-greenB rounded-2xl">

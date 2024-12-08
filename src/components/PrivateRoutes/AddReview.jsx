@@ -72,7 +72,7 @@ const AddReview = () => {
   return (
     <div>
       <div className="bg-primary min-h-screen px-5 py-10">
-        <h2 className="text-4xl font-bold pb-10 text-greenC text-center">Submit Game Review</h2>
+        <h2 className="text-xl md:text-4xl font-bold pb-10 text-greenC text-center">Submit Game Review</h2>
         <div className="max-w-7xl mx-auto p-5 bg-greenB rounded-2xl">
           <form className="grid gap-5" onSubmit={handleSubmit} ref={formRef}>
             <div className="flex flex-col md:flex-row items-center justify-center gap-5">
