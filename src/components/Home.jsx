@@ -9,21 +9,22 @@ import { useEffect, useState } from "react";
 const Home = () => {
   const loadedTop = useLoaderData();
 
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
   const themeBodlao = () => {
-    setTheme('light' ? 'dark' : 'light');
-  }
+    setTheme((aagerTheme) => (aagerTheme === "light" ? "dark" : "light"));
+  };
 
   return (
     <div>
       <div className="bg-primary">
         <div className="flex justify-center text-greenB pt-5">
-          <label onClick={themeBodlao} className="flex cursor-pointer gap-2">
+          <label className="flex cursor-pointer gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="20"
@@ -42,6 +43,8 @@ const Home = () => {
               type="checkbox"
               value="synthwave"
               className="toggle theme-controller"
+              onChange={themeBodlao}
+              checked={theme === "dark"}
             />
             <svg
               xmlns="http://www.w3.org/2000/svg"
