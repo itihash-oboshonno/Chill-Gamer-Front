@@ -50,7 +50,7 @@ const SignUp = () => {
         });
         // sending to mongo
         const newUser = {email, name, picture};
-        fetch('http://localhost:5000/usercoll', {
+        fetch('https://chill-gamer-back.vercel.app/usercoll', {
           method: "POST",
           headers: {
             'content-type': 'application/json'

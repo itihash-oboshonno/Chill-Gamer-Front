@@ -17,7 +17,7 @@ const GameWatchlist = () => {
       try {
         setThisLoading(true);
         const response = await fetch(
-          `http://localhost:5000/mywatchlist?searchParams=${wishMail}`
+          `https://chill-gamer-back.vercel.app/mywatchlist?searchParams=${wishMail}`
         );
         const result = await response.json();
         setFetchedData(result.length? result : null);
@@ -42,7 +42,7 @@ const GameWatchlist = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/mywatchlist/${_id}`, {
+        fetch(`https://chill-gamer-back.vercel.app/mywatchlist/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

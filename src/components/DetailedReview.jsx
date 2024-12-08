@@ -15,7 +15,7 @@ const DetailedReview = () => {
         // Send to server
         if(currentUser) {
             const wishObject = {title, image, review, rating, year, genre, email, userName, wishListsUser: currentUser.email, wishListsName: currentUser.displayName};
-            fetch('http://localhost:5000/wishlist', {
+            fetch('https://chill-gamer-back.vercel.app/wishlist', {
                 method: 'POST',
                 headers: {
                   'content-type': 'application/json'

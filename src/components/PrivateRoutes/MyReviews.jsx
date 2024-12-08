@@ -19,7 +19,7 @@ const MyReviews = () => {
       try {
         setThisLoading(true);
         const response = await fetch(
-          `http://localhost:5000/myreviews?searchParams=${myMail}`
+          `https://chill-gamer-back.vercel.app/myreviews?searchParams=${myMail}`
         );
         const result = await response.json();
         setFetchedData(result.length ? result : null);
@@ -44,7 +44,7 @@ const MyReviews = () => {
       confirmButtonText: "Yes, delete it!"
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/reviews/${_id}`, {
+        fetch(`https://chill-gamer-back.vercel.app/reviews/${_id}`, {
           method: 'DELETE'
         })
         .then(res=> res.json())

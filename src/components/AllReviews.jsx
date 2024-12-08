@@ -20,7 +20,7 @@ const AllReviews = () => {
   };
 
   // useEffect(() => {
-  //   fetch(`http://localhost:5000/reviewsforall?filterBy=${filterBy}&sortBy=${sortBy}`)
+  //   fetch(`https://chill-gamer-back.vercel.app/reviewsforall?filterBy=${filterBy}&sortBy=${sortBy}`)
   //   .then(res => res.json())
   //   .then(data => setDataToShow(data))
   // }, [])
@@ -29,7 +29,7 @@ const AllReviews = () => {
     setThisLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:5000/reviewsforall?filterBy=${filterBy}&sortBy=${sortBy}`
+        `https://chill-gamer-back.vercel.app/reviewsforall?filterBy=${filterBy}&sortBy=${sortBy}`
       );
       const result = await response.json();
       setDataToShow(result);

@@ -26,7 +26,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/topreviews"),
+        loader: () => fetch("https://chill-gamer-back.vercel.app/topreviews"),
       },
       {
         path: "/allreviews",
@@ -64,7 +64,7 @@ const router = createBrowserRouter([
           </PrivateRoutes>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/reviews/${params.id}`),
+          fetch(`https://chill-gamer-back.vercel.app/reviews/${params.id}`),
       },
       {
         path: "/login",
@@ -78,7 +78,7 @@ const router = createBrowserRouter([
         path: `/review/:id`,
         element: <DetailedReview></DetailedReview>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/reviews/${params.id}`),
+          fetch(`https://chill-gamer-back.vercel.app/reviews/${params.id}`),
       },
     ],
   },
