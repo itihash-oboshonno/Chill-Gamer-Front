@@ -3,6 +3,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 import Loading from "../Loading";
 import Swal from "sweetalert2";
 import { MdDeleteForever } from "react-icons/md";
+import { Tooltip } from "react-tooltip";
 
 const GameWatchlist = () => {
   const { currentUser } = useContext(AuthContext);
@@ -102,6 +103,8 @@ const GameWatchlist = () => {
                           <div>
                             <button
                               onClick={() => handleDelete(prottek._id)}
+                              data-tooltip-id="my-tooltip"
+                              data-tooltip-content="Delete"
                               className="text-2xl"
                             >
                               <MdDeleteForever />
@@ -121,6 +124,7 @@ const GameWatchlist = () => {
           )}
         </div>
       </div>
+      <Tooltip id="my-tooltip" />
     </div>
   );
 };

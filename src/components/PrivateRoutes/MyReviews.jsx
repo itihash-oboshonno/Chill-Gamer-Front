@@ -5,6 +5,7 @@ import { FaEdit } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { Tooltip } from 'react-tooltip'
 
 const MyReviews = () => {
   const { currentUser } = useContext(AuthContext);
@@ -99,11 +100,11 @@ const MyReviews = () => {
                         </td>
                         <td>{ekta.rating}</td>
                         <td>
-                          <div className="px-5 flex flex-col md:flex-row gap-5">
-                            <Link to={`/updatereview/${ekta._id}`}><button className="text-lg">
+                          <div className="flex flex-col md:flex-row gap-5">
+                            <Link to={`/updatereview/${ekta._id}`}><button data-tooltip-id="my-tooltip" data-tooltip-content="Edit" className="text-lg">
                               <FaEdit></FaEdit>
                             </button></Link>
-                            <button onClick={()=> handleDelete(ekta._id)} className="text-2xl">
+                            <button onClick={()=> handleDelete(ekta._id)} data-tooltip-id="my-tooltip" data-tooltip-content="Delete" className="text-2xl">
                               <MdDeleteForever />
                             </button>
                           </div>
@@ -121,6 +122,7 @@ const MyReviews = () => {
           )}
         </div>
       </div>
+      <Tooltip id="my-tooltip" />
     </div>
   );
 };

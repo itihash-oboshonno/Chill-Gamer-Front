@@ -15,6 +15,7 @@ import GameWatchlist from "./components/PrivateRoutes/GameWatchlist";
 import DetailedReview from "./components/DetailedReview";
 import PrivateRoutes from "./components/PrivateRoutes";
 import UpdateReview from "./components/PrivateRoutes/UpdateReview";
+import 'react-tooltip/dist/react-tooltip.css'
 
 const router = createBrowserRouter([
   {
