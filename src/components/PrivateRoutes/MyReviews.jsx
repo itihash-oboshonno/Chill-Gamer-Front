@@ -6,6 +6,7 @@ import { MdDeleteForever } from "react-icons/md";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import { Tooltip } from 'react-tooltip'
+import { toast, Toaster } from "sonner";
 
 const MyReviews = () => {
   const { currentUser } = useContext(AuthContext);
@@ -20,13 +21,10 @@ const MyReviews = () => {
         const response = await fetch(
           `http://localhost:5000/myreviews?searchParams=${myMail}`
         );
-        if (!response.ok) {
-          throw new Error(`Error: ${response.status}`);
-        }
         const result = await response.json();
         setFetchedData(result.length ? result : null);
       } catch (err) {
-        console.log(err.message);
+        toast.log(err.message);
       } finally {
         setThisLoading(false);
       }
@@ -123,6 +121,7 @@ const MyReviews = () => {
         </div>
       </div>
       <Tooltip id="my-tooltip" />
+      <Toaster position="top-center" expand={false} richColors />
     </div>
   );
 };

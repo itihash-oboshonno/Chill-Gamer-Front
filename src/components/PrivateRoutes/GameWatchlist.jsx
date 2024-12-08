@@ -4,6 +4,7 @@ import Loading from "../Loading";
 import Swal from "sweetalert2";
 import { MdDeleteForever } from "react-icons/md";
 import { Tooltip } from "react-tooltip";
+import { toast, Toaster } from "sonner";
 
 const GameWatchlist = () => {
   const { currentUser } = useContext(AuthContext);
@@ -18,13 +19,10 @@ const GameWatchlist = () => {
         const response = await fetch(
           `http://localhost:5000/mywatchlist?searchParams=${wishMail}`
         );
-        if (!response.ok) {
-          throw new Error(`Error: ${response.status}`);
-        }
         const result = await response.json();
-        setFetchedData(result.length ? result : null);
+        setFetchedData(result.length? result : null);
       } catch (err) {
-        console.log(err.message);
+        toast.error(err.message);
       } finally {
         setThisLoading(false);
       }
@@ -125,6 +123,7 @@ const GameWatchlist = () => {
         </div>
       </div>
       <Tooltip id="my-tooltip" />
+      <Toaster position="top-center" expand={false} richColors />
     </div>
   );
 };
