@@ -85,7 +85,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="">
+    <div className="pb-20">
       <div className="max-w-6xl mx-auto px-5">
         <h2 className="font-bold text-4xl text-center my-10">Sign Up</h2>
         <div className="border-2 rounded-2xl py-5">
@@ -131,7 +131,7 @@ const SignUp = () => {
               />
             </div>
             <input
-              className="rounded-lg p-2 border-2 my-5 cursor-pointer"
+              className="rounded-lg p-2 border-2 my-5 cursor-pointer hover:bg-greenB hover:text-primary"
               type="submit"
               value="Sign Up"
             />

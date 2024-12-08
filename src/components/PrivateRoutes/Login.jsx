@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { toast, Toaster } from "sonner";
+import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
 
@@ -53,7 +54,7 @@ const Login = () => {
   };
 
   return (
-    <div className="">
+    <div className="pb-20">
       <div className="max-w-6xl mx-auto px-5">
         <h2 className="font-bold text-4xl text-center my-10">Login</h2>
         <div className="border-2 rounded-2xl py-5 grid justify-center">
@@ -79,14 +80,14 @@ const Login = () => {
               />
             </div>
             <input
-                className="rounded-lg p-2 border-2 my-5 cursor-pointer"
+                className="rounded-lg p-2 border-2 my-5 cursor-pointer hover:bg-greenB hover:text-primary"
                 type="submit"
                 value="Login"
               />
           </form>
           <p className="text-center">or</p>
-          <button onClick={handleLoginGoogle} className="rounded-lg p-2 border-2 my-5 mx-auto px-5">
-            Sign In With Google
+          <button onClick={handleLoginGoogle} className="rounded-lg p-2 border-2 my-5 mx-auto px-5 flex items-center gap-2 hover:bg-greenB hover:text-primary">
+            <FaGoogle/>Sign In With Google
           </button>
           <p className="text-center">Don't have an account? Please <Link to="/signup" className="underline">Register Here</Link></p>
           <p className="my-2 text-center font-semibold text-redA">
