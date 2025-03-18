@@ -5,6 +5,7 @@ import Platforms from "./HomeComponents/Platforms";
 import Process from "./HomeComponents/Process";
 import { Fade } from "react-awesome-reveal";
 import { useEffect, useState } from "react";
+import NewsLetter from "./HomeComponents/NewsLetter";
 
 const Home = () => {
   const loadedTop = useLoaderData();
@@ -84,6 +85,9 @@ const Home = () => {
           </p>
         </Fade>
         <Process></Process>
+      </div>
+      <div className="max-w-5xl mx-auto px-5 py-10">
+        <NewsLetter></NewsLetter>
       </div>
       <div className="max-w-5xl mx-auto px-5 py-10">
         <Fade>

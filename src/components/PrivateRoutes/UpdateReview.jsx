@@ -23,8 +23,8 @@ const UpdateReview = () => {
     const title = form.title.value;
     const image = form.cover.value;
     const review = form.description.value;
-    const rating = form.rating.value;
-    const year = form.year.value;
+    const rating = parseFloat(form.rating.value);
+    const year = parseFloat(form.year.value);
     const genre = category;
     const email = currentUser.email;
     const userName = currentUser.displayName;
